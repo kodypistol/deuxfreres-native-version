@@ -61,6 +61,10 @@ const loadPage = () =>
     const titleContainerH1 = document.querySelector('.title-container > h1');
     const titleContainerH1SpanLast = document.querySelector('.title-container > h1 > span:last-child');
     const titleContainerH1AllSpans = document.querySelectorAll('.title-container > h1 span');
+    const dfText = document.querySelector('.img-child:nth-of-type(1) > .hover-text-df-container > div')
+    const dllText = document.querySelector('.img-child:nth-of-type(2) > .hover-text-dll-container > div')
+    const lmcText = document.querySelector('.img-child:nth-of-type(3) > .hover-text-lmc-container > div')
+    const qlfText = document.querySelector('.img-child:nth-of-type(4) > .hover-text-qlf-container > div')
 
     gsap.to(df, {
         delay: 4,
@@ -191,6 +195,17 @@ const loadPage = () =>
                         gsap.to(df, {
                             transform: 'translate(-70%, -50%) rotateY(-35deg)',
                         })
+                        gsap.to(dfText, {
+                            opacity: '0',
+                            transform: 'translateX(-7vh)',
+                            duration: 0.6
+                        });
+                        gsap.to(dllText, {
+                            opacity: '100%',
+                            transform: 'translateX(7vh)',
+                            duration: 0.6
+                        });
+
 
                         break;
                     case document.querySelector('#df') :
@@ -201,6 +216,11 @@ const loadPage = () =>
                         gsap.to(df, {
                             transform: 'translate3d(10%, -50%, 20px) translate(-313.2px, 0px) rotateY(-35.0002deg)'
                         })
+                        gsap.to(dfText, {
+                            opacity: '100%',
+                            transform: 'translateX(7vh)',
+                            duration: 0.6
+                        });
                         break;
                     case document.querySelector('#lmc') :
                         gsap.to(body, {
@@ -217,6 +237,11 @@ const loadPage = () =>
                         gsap.to(df, {
                             transform: 'translate(-70%, -50%) rotateY(-35deg)',
                         })
+                        gsap.to(lmcText, {
+                            opacity: '100%',
+                            transform: 'translateX(2vh)',
+                            duration: 0.6
+                        });
                         break;
                     case document.querySelector('#qlf') :
                         gsap.to(body, {
@@ -226,6 +251,11 @@ const loadPage = () =>
                         gsap.to(qlf, {
                             transform: 'translate3d(70%, -50%, 20px) rotateY(-35deg)',
                             duration: 0.6,
+                        });
+                        gsap.to(qlfText, {
+                            opacity: '100%',
+                            transform: 'translateX(2vh)',
+                            duration: 0.6
                         });
 
                         gsap.to(dll, {
@@ -266,11 +296,36 @@ const loadPage = () =>
                     gsap.to(qlf, {
                         transform: 'translate3d(60%, -50%, 0px) rotateY(-35deg)'
                     });
+                    gsap.to(dfText, {
+                        opacity: '0',
+                        transform: 'translateX(0vh)',
+                        duration: 0.6
+                    });
+                    gsap.to(dllText, {
+                        opacity: '0',
+                        transform: 'translateX(0vh)',
+                        duration: 0.6
+                    });
+                    gsap.to(lmcText, {
+                        opacity: '0',
+                        transform: 'translateX(-2vh)',
+                        duration: 0.6
+                    });
+                    gsap.to(qlfText, {
+                        opacity: '0',
+                        transform: 'translateX(-2vh)',
+                        duration: 0.6
+                    });
                 } else
                 if (e.toElement === document.querySelector('#df'))
                 {
                     gsap.to(dll, {
                         transform: 'translate3d(-30%, -50%, 0px) rotateY(-35deg)'
+                    });
+                    gsap.to(dllText, {
+                        opacity: '0',
+                        transform: 'translateX(-7vh)',
+                        duration: 0.6
                     });
                 } else
                 if (e.toElement === document.querySelector('#dll'))
@@ -278,12 +333,35 @@ const loadPage = () =>
                     gsap.to(lmc, {
                         transform: 'translate3d(10%, -50%, 0px) rotateY(-35deg)'
                     })
+                    gsap.to(lmcText, {
+                        opacity: '0',
+                        transform: 'translateX(-2vh)',
+                        duration: 0.6
+                    });
                 } else
                 if (e.toElement === document.querySelector('#lmc'))
                 {
                     gsap.to(qlf, {
                         transform: 'translate(60%, -50%) rotateY(-35deg)'
                     })
+                    gsap.to(dllText, {
+                        opacity: '0',
+                        transform: 'translateX(-7vh)',
+                        duration: 0.6
+                    });
+                    gsap.to(qlfText, {
+                        opacity: '0',
+                        transform: 'translateX(-2vh)',
+                        duration: 0.6
+                    });
+                } else
+                if (e.toElement === document.querySelector('#qlf'))
+                {
+                    gsap.to(lmcText, {
+                        opacity: '0',
+                        transform: 'translateX(-8vh)',
+                        duration: 0.6
+                    });
                 }
 
             })

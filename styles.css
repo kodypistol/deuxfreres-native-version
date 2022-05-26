@@ -11,7 +11,7 @@ html {
 }
 
 @font-face {
-    font-family: 'Druk Wide Medium';
+    font-family: 'Druk Wide';
     src: url("/assets/fonts/DrukWide-Bold.otf");
     font-weight: 400;
 }
@@ -145,18 +145,183 @@ h1 span:last-child {
     background: radial-gradient(circle, rgba(230,180,158,1) 45%, rgba(209,116,160,1) 81%) !important;
 }
 
-.hover-texts-container {
-    position: relative;
-    top:0;
-    font-family: "Doppelganger";
+
+.imgs-parent > div:nth-child(1) > div {
+    z-index: 5;
 }
 
-.hover-texts-container div h2{
+.imgs-parent > div:nth-child(2) > div {
+    z-index: 4;
+}
+
+.imgs-parent > div:nth-child(3) > div {
+    z-index: 3;
+}
+
+.imgs-parent > div:nth-child(4) > div {
+    z-index: 2;
+}
+
+.imgs-parent > div:nth-child(5) > div {
+    z-index: 1;
+}
+
+/** DF TEXT **/
+
+.hover-text-df-container {
+    position: relative;
+    top: 23vh;
+    left: 56vw;
+    font-family: "Druk Wide";
+    font-weight: 400;
+    pointer-events: none;
+}
+
+.hover-text-df-container > div {
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    opacity: 0%;
+}
+
+.hover-text-df-container > div p, .hover-text-df-container > div h2 {
+    margin: 0;
+    color: white;
+    transform: rotateX(-8deg) rotateY(-35deg) rotateZ(0deg);
+}
+
+.hover-text-df-container > div h2 {
+    line-height: 120%;
+    font-size: 3vw;
     font-weight: 400;
 }
 
+.hover-text-df-container > div p {
+    font-family: Doppelganger;
+    font-size: 4vw;
+    line-height: 50%;
+}
 
 .df-text {
     position: absolute;
     top:0;
+}
+
+/** DLL TEXT **/
+
+.hover-text-dll-container {
+    position: relative;
+    top: 16vh;
+    left: 62vw;
+    font-family: "Druk Wide";
+    font-weight: 400;
+    pointer-events: none;
+}
+
+.hover-text-dll-container > div {
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    opacity: 0%;
+}
+
+.dll-text {
+    position: absolute;
+    top: 0;
+}
+
+.hover-text-dll-container > div p, .hover-text-dll-container > div h2 {
+    margin: 0;
+    color: white;
+    transform: rotateX(-8deg) rotateY(-35deg) rotateZ(0deg);
+}
+
+.hover-text-dll-container > div h2 {
+    line-height: 120%;
+    font-size: 3vw;
+    font-weight: 400;
+}
+
+.hover-text-dll-container > div p {
+    font-family: Doppelganger;
+    font-size: 4vw;
+    line-height: 50%;
+}
+
+/** LMC TEXT **/
+.hover-text-lmc-container {
+    position: relative;
+    top: 11vh;
+    left: 72vw;
+    font-family: "Druk Wide";
+    font-weight: 400;
+    pointer-events: none;
+}
+
+.hover-text-lmc-container > div {
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    opacity: 0%;
+}
+
+.lmc-text {
+    position: absolute;
+    top: 0;
+    text-shadow: 1px 1px 8px rgb(0 0 0 / 20%);
+}
+
+.hover-text-lmc-container > div p, .hover-text-lmc-container > div h2 {
+    margin: 0;
+    color: white;
+    transform: rotateX(-8deg) rotateY(-35deg) rotateZ(0deg);
+}
+
+.hover-text-lmc-container > div h2 {
+    line-height: 120%;
+    font-size: 3vw;
+    font-weight: 400;
+}
+
+.hover-text-lmc-container > div p {
+    font-family: Doppelganger;
+    font-size: 4vw;
+    line-height: 50%;
+}
+
+/** QLF TEXT **/
+.hover-text-qlf-container {
+    position: relative;
+    top: 5vh;
+    left: 80.5vw;
+    font-family: "Druk Wide";
+    font-weight: 400;
+    pointer-events: none;
+}
+
+.hover-text-qlf-container > div {
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    opacity: 0%;
+}
+
+.qlf-text {
+    position: absolute;
+    top: 0;
+}
+
+.hover-text-qlf-container > div p, .hover-text-qlf-container > div h2 {
+    margin: 0;
+    color: white;
+    transform: rotateX(-2deg) rotateY(-35deg) rotateZ(0deg);
+    text-shadow: 1px 1px 20px rgb(0 0 0 / 40%);
+}
+
+.hover-text-qlf-container > div h2 {
+    line-height: 120%;
+    font-size: 3vw;
+    font-weight: 400;
+}
+
+.hover-text-qlf-container > div p {
+    font-family: Doppelganger;
+    font-size: 4vw;
+    line-height: 50%;
 }
