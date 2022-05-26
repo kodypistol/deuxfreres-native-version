@@ -151,13 +151,15 @@ const loadPage = () =>
     })
     const initCameraControl = () =>
     {
+        let cursor = {
+            x:0,
+            y:0
+        }
+
         window.addEventListener('mousemove', (e) =>
         {
-            let cursor = {
-                x:0,
-                y:0
-            }
             const allContainer = document.querySelector('.all-container');
+
 
             cursor.x = (e.clientX / window.innerWidth - 0.5) * 2;
             cursor.y = -(e.clientY / window.innerHeight - 0.5) * 2;
@@ -183,24 +185,59 @@ const loadPage = () =>
                             background: 'radial-gradient(circle, rgba(230,180,158,1) 45%, rgba(209,116,160,1) 81%)',
                             duration: 0.6,
                         });
+                        gsap.to(dll, {
+                            transform: 'translate3d(-20%, -50%, 20px) rotateY(-35deg)'
+                        });
+                        gsap.to(df, {
+                            transform: 'translate(-70%, -50%) rotateY(-35deg)',
+                        })
+
                         break;
                     case document.querySelector('#df') :
                         gsap.to(body, {
                             background: 'radial-gradient(circle, rgba(161,97,184,1) 45%, rgba(37,93,162,1) 81%)',
                             duration: 0.6,
                         });
+                        gsap.to(df, {
+                            transform: 'translate3d(10%, -50%, 20px) translate(-313.2px, 0px) rotateY(-35.0002deg)'
+                        })
                         break;
                     case document.querySelector('#lmc') :
                         gsap.to(body, {
                             background: 'radial-gradient(circle, rgba(225,0,58,1) 30%, rgba(4,9,13,1) 83%)',
                             duration: 0.6,
                         });
+                        gsap.to(lmc, {
+                            transform: 'translate3d(15%, -50%, 20px) rotateY(-35.0002deg)',
+                            duration: 0.6,
+                        });
+                        gsap.to(dll, {
+                            transform: 'translate3d(-40%, -50%, 20px) rotateY(-35deg)'
+                        });
+                        gsap.to(df, {
+                            transform: 'translate(-70%, -50%) rotateY(-35deg)',
+                        })
                         break;
                     case document.querySelector('#qlf') :
                         gsap.to(body, {
                             background: 'radial-gradient(circle, rgba(169,53,82,1) 13%, rgba(255,207,219,1) 96%)',
                             duration: 0.6,
                         });
+                        gsap.to(qlf, {
+                            transform: 'translate3d(70%, -50%, 20px) rotateY(-35deg)',
+                            duration: 0.6,
+                        });
+
+                        gsap.to(dll, {
+                            transform: 'translate3d(-40%, -50%, 20px) rotateY(-35deg)'
+                        });
+                        gsap.to(df, {
+                            transform: 'translate(-70%, -50%) rotateY(-35deg)',
+                        })
+                        gsap.to(lmc, {
+                            transform: 'translate(0%, -50%) rotateY(-35deg)',
+                        })
+
                         break;
                     default:
 
@@ -217,6 +254,36 @@ const loadPage = () =>
                         duration: 0.8,
 
                     });
+                    gsap.to(df, {
+                       transform: 'translate3d(-60%, -50%, 0px) rotateY(-35deg)'
+                    });
+                    gsap.to(dll, {
+                        transform: 'translate3d(-30%, -50%, 0px) rotateY(-35deg)'
+                    });
+                    gsap.to(lmc, {
+                        transform: 'translate3d(10%, -50%, 0px) rotateY(-35deg)'
+                    });
+                    gsap.to(qlf, {
+                        transform: 'translate3d(60%, -50%, 0px) rotateY(-35deg)'
+                    });
+                } else
+                if (e.toElement === document.querySelector('#df'))
+                {
+                    gsap.to(dll, {
+                        transform: 'translate3d(-30%, -50%, 0px) rotateY(-35deg)'
+                    });
+                } else
+                if (e.toElement === document.querySelector('#dll'))
+                {
+                    gsap.to(lmc, {
+                        transform: 'translate3d(10%, -50%, 0px) rotateY(-35deg)'
+                    })
+                } else
+                if (e.toElement === document.querySelector('#lmc'))
+                {
+                    gsap.to(qlf, {
+                        transform: 'translate(60%, -50%) rotateY(-35deg)'
+                    })
                 }
 
             })

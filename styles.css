@@ -81,6 +81,8 @@ h1 span:last-child {
 .img-child {
     position:relative;
     width: 100vw;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
 }
 .img-child > img{
     top: 50%;
@@ -90,6 +92,23 @@ h1 span:last-child {
     transform: translate(-50%, -50%);
     object-fit: contain;
 }
+
+.img-child:nth-of-type(1){
+    z-index: 4;
+}
+
+.img-child:nth-of-type(2){
+    z-index: 3;
+}
+
+.img-child:nth-of-type(3){
+    z-index: 2;
+}
+
+.img-child:nth-of-type(4){
+    z-index: 1;
+}
+
 
 #df {
     z-index: 4;
@@ -140,8 +159,4 @@ h1 span:last-child {
 .df-text {
     position: absolute;
     top:0;
-}
-
-#df:hover + body {
-    margin-top: 200px;
 }
