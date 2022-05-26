@@ -4,6 +4,7 @@ require('./assets/png/df.png');
 require('./assets/png/dll.jpg');
 require('./assets/png/lmc.png');
 require('./assets/png/qlf.jpg');
+require('./assets/svg/cursor.svg');
 require('./assets/fonts/DoppelgangerDisplay.otf');
 require('./assets/fonts/DrukWide-Bold.otf');
 require('./assets/fonts/DrukWide-Heavy.otf');

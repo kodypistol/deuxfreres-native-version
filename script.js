@@ -1,5 +1,7 @@
 import {gsap} from './node_modules/gsap/index.js';
 
+
+
 const loadPage = () =>
 {
     const fadeScreen = document.querySelector('.fade-in-screen');
@@ -155,21 +157,7 @@ const loadPage = () =>
     })
     const initCameraControl = () =>
     {
-        let cursor = {
-            x:0,
-            y:0
-        }
 
-        window.addEventListener('mousemove', (e) =>
-        {
-            const allContainer = document.querySelector('.all-container');
-
-
-            cursor.x = (e.clientX / window.innerWidth - 0.5) * 2;
-            cursor.y = -(e.clientY / window.innerHeight - 0.5) * 2;
-
-            allContainer.style.transform = 'translateX(' + cursor.x + '%) translateY(' + cursor.y + '%)';
-        });
 
         const imgs = document.querySelectorAll('.imgs-parent img');
         const blockColor = (color) =>
@@ -382,6 +370,65 @@ const loadPage = () =>
 
 window.onload = loadPage;
 
+let cursor = {
+    x:0,
+    y:0
+}
+const allContainer = document.querySelector('.all-container');
+const pointer = document.querySelector('.cursor > div');
+let pointerX = 0;
+let pointerY = 0
+let mouseMoved = false;
+window.addEventListener('mousemove', (e) =>
+{
+
+    if (!mouseMoved) {
+
+        const displayPointer = () =>
+        {
+            gsap.to(document.querySelector('.cursor'), {
+                delay: 0.4,
+                duration: 0.4,
+                ease: "power3.out",
+                opacity: '100%'
+            })
+        }
+        displayPointer();
+        mouseMoved = true
+    }
+
+    cursor.x = (e.clientX / window.innerWidth - 0.5) * 2;
+    cursor.y = -(e.clientY / window.innerHeight - 0.5) * 2;
+
+    pointerX = e.clientX;
+    pointerY = e.clientY;
 
 
+
+});
+
+
+window.requestAnimationFrame(function animation()
+{
+    // container
+    allContainer.style.transform = 'translateX(' + cursor.x + '%) translateY(' + cursor.y + '%)';
+
+    // cursor
+    // pointer.style.top = cursor.y - 35;
+    pointer.style.top = (pointerY - 25)  + 'px';
+    pointer.style.left = (pointerX - 20) + 'px';
+    window.requestAnimationFrame(animation);
+})
+
+window.addEventListener('click', () => {
+    gsap.to(pointer, {
+        duration: 0.2,
+        scale: 0.8
+    })
+    gsap.to(pointer, {
+        delay: 0.1,
+        duration: 0.2,
+        scale: 1
+    })
+})
 
