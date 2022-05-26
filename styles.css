@@ -2,12 +2,22 @@ html {
     overflow: hidden;
 }
 
+
 @font-face {
     font-family: 'Doppelganger';
+    src: url("/assets/fonts/DoppelgangerDisplay.otf");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Druk Wide Medium';
+    src: url("/assets/fonts/DrukWide-Bold.otf");
+    font-weight: 400;
 }
 
 body {
-    background-color: #2E3960;
+    background: radial-gradient(circle, rgba(46,57,96,1) 45%, rgba(46,57,96,1) 81%);
     margin: 0;
 }
 
@@ -110,4 +120,28 @@ h1 span:last-child {
 
 .imgs-hover {
 
+}
+
+.dll-hover {
+    background: radial-gradient(circle, rgba(230,180,158,1) 45%, rgba(209,116,160,1) 81%) !important;
+}
+
+.hover-texts-container {
+    position: relative;
+    top:0;
+    font-family: "Doppelganger";
+}
+
+.hover-texts-container div h2{
+    font-weight: 400;
+}
+
+
+.df-text {
+    position: absolute;
+    top:0;
+}
+
+#df:hover + body {
+    margin-top: 200px;
 }

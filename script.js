@@ -3,12 +3,19 @@ import {gsap} from './node_modules/gsap/index.js';
 const loadPage = () =>
 {
     const fadeScreen = document.querySelector('.fade-in-screen');
+    const body = document.querySelector('body');
 
     gsap.to(fadeScreen, {
         opacity: 0,
         duration: 2,
         delay: 0.5
     });
+
+    gsap.to(body, {
+        delay: 2.5,
+        duration: 0,
+        background: 'radial-gradient(circle, rgba(46,57,96,1) 45%, rgba(46,57,96,1) 81%)'
+    })
 
     const titleContainer = document.querySelector('.title-container');
 
@@ -107,10 +114,9 @@ const loadPage = () =>
         duration: 1.3,
     })
 
-    const body = document.querySelector('body');
     gsap.to(body, {
         delay: 5.4,
-        backgroundColor: '#4F5E92',
+        background: 'radial-gradient(circle, rgba(79,94,146,1) 45%, rgba(79,94,146,1) 81%)',
         ease: "power3.out",
         duration: 1.3
     })
@@ -160,16 +166,59 @@ const loadPage = () =>
         });
 
         const imgs = document.querySelectorAll('.imgs-parent img');
+        const blockColor = (color) =>
+        {
+            body.style.background = color;
+        }
+        let hoveringElement = false;
         imgs.forEach((img) =>
         {
-            img.addEventListener('mouseenter', (e) =>
+            img.addEventListener('mouseover', (e) =>
             {
-                console.log('entered : ', e.path[0])
+                hoveringElement = true;
+
+                switch (img) {
+                    case document.querySelector('#dll') :
+                        gsap.to(body, {
+                            background: 'radial-gradient(circle, rgba(230,180,158,1) 45%, rgba(209,116,160,1) 81%)',
+                            duration: 0.6,
+                        });
+                        break;
+                    case document.querySelector('#df') :
+                        gsap.to(body, {
+                            background: 'radial-gradient(circle, rgba(161,97,184,1) 45%, rgba(37,93,162,1) 81%)',
+                            duration: 0.6,
+                        });
+                        break;
+                    case document.querySelector('#lmc') :
+                        gsap.to(body, {
+                            background: 'radial-gradient(circle, rgba(225,0,58,1) 30%, rgba(4,9,13,1) 83%)',
+                            duration: 0.6,
+                        });
+                        break;
+                    case document.querySelector('#qlf') :
+                        gsap.to(body, {
+                            background: 'radial-gradient(circle, rgba(169,53,82,1) 13%, rgba(255,207,219,1) 96%)',
+                            duration: 0.6,
+                        });
+                        break;
+                    default:
+
+                        break;
+                }
             })
 
-            img.addEventListener('mouseleave', (e) =>
+            img.addEventListener('mouseout', (e) =>
             {
-                console.log('leaved : ', e.path[0])
+                if (e.toElement === document.querySelector('.all-container'))
+                {
+                    gsap.to(body, {
+                        background: 'radial-gradient(circle, rgba(79,94,146,1) 45%, rgba(79,94,146,1) 81%)',
+                        duration: 0.8,
+
+                    });
+                }
+
             })
         });
 

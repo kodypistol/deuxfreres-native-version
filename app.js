@@ -1,0 +1,11 @@
+require('./script.js');
+require('./styles.css');
+require('./assets/png/df.png');
+require('./assets/png/dll.jpg');
+require('./assets/png/lmc.png');
+require('./assets/png/qlf.jpg');
+require('./assets/fonts/DoppelgangerDisplay.otf');
+require('./assets/fonts/DrukWide-Bold.otf');
+require('./assets/fonts/DrukWide-Heavy.otf');
+require('./assets/fonts/DrukWide-Medium.otf');
+require('./assets/fonts/DrukWide-Super.otf');

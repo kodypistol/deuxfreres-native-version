@@ -5,12 +5,28 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server -a localhost -p 8000 -c-1"
+    "start": "http-server -a localhost -p 8000 -c-1",
+    "build": "webpack --mode production",
+    "dev": "webpack serve --config ./webpack.config.js"
   },
   "author": "kody",
   "license": "ISC",
   "dependencies": {
     "gsap": "^3.10.4",
-    "http-server": "^14.1.0"
+    "html-webpack-plugin": "^5.5.0",
+    "http-server": "^14.1.0",
+    "internal-ip": "^7.0.0",
+    "portfinder-sync": "^0.0.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.2.5",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
   }
 }
