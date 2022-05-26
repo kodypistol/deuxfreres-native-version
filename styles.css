@@ -1,0 +1,113 @@
+html {
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: 'Doppelganger';
+}
+
+body {
+    background-color: #2E3960;
+    margin: 0;
+}
+
+.fade-in-screen {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0C1020;
+    opacity: 100%;
+}
+
+.title-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    transform: scale(0.6);
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+h1 {
+    font-family: Doppelganger;
+    font-weight: 400;
+    display:flex;
+    flex-direction: column;
+    line-height: clamp(80px, 8vw, 140px);
+    height: 20%;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+}
+
+h1 span:first-child {
+    color: #FF5555;
+    font-size: 36vw;
+    letter-spacing: -8.3px;
+}
+
+h1 span:last-child {
+    color: #00FDFF;
+    font-size: 13vw;
+    letter-spacing: -0.52px;
+    margin-left: 12vw;
+    width:100%;
+}
+
+
+.imgs-parent{
+    position:absolute;
+    top:50%;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    z-index: 0;
+}
+
+.img-child {
+    position:relative;
+    width: 100vw;
+}
+.img-child > img{
+    top: 50%;
+    left: 50%;
+    height: min(70vh, 700px);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+}
+
+#df {
+    z-index: 4;
+}
+
+#dll {
+    height: min(60vh, 600px);
+    z-index: 3;
+}
+
+#lmc {
+    height: min(50vh, 500px);
+    z-index: 2;
+}
+
+#qlf {
+    height: min(40vh, 400px);
+    z-index: 1;
+}
+
+#df, #lmc {
+    transform: translate(-130vw, -50%);
+}
+
+#dll, #qlf {
+    transform: translate(130vw, -50%);
+}
+
+.imgs-hover {
+
+}
