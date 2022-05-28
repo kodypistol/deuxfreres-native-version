@@ -53,7 +53,7 @@ const eventsManager = {
                 duration: 0.2,
                 scale: 1
             })
-            switch (e.path[0])
+            switch (e.composedPath()[0])
             {
                 case document.querySelector('#df'):
                     experienceManager.showClickedCoverSection('#df')
@@ -293,7 +293,10 @@ const eventsManager = {
         window.requestAnimationFrame(function animation()
         {
             // container
+            scopeThis.allContainer.style.msTransform = 'translate3d(' + scopeThis.cursor.x + '%, ' + scopeThis.cursor.y + '%, 0)';
             scopeThis.allContainer.style.transform = 'translate3d(' + scopeThis.cursor.x + '%, ' + scopeThis.cursor.y + '%, 0)';
+            scopeThis.allContainer.style.mozTransform = 'translate3d(' + scopeThis.cursor.x + '%, ' + scopeThis.cursor.y + '%, 0)';
+            scopeThis.allContainer.style.webkitTransform = 'translate3d(' + scopeThis.cursor.x + '%, ' + scopeThis.cursor.y + '%, 0)';
             // cursor
             scopeThis.pointer.style.transform = 'translate3d(' + (scopeThis.pointerX * 2.9) + '%, '  + (scopeThis.pointerY * 2.9) + '%, 0)';
             window.requestAnimationFrame(animation);
