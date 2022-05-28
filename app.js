@@ -1,8 +1,8 @@
 require('./script.js');
 require('./styles.css');
-require('./assets/png/df.png');
+require('./assets/png/df.jpg');
 require('./assets/png/dll.jpg');
-require('./assets/png/lmc.png');
+require('./assets/png/lmc.jpg');
 require('./assets/png/qlf.jpg');
 require('./assets/svg/cursor.svg');
 require('./assets/fonts/DoppelgangerDisplay.otf');
