@@ -17,24 +17,9 @@ module.exports = {
                 use: ["style-loader", "css-loader"]
             },
             {
-                test: /\.(png|jpe?g|gif|ico)$/i,
-                loader: 'file-loader',
-                options: {
-                    name: '[path][name].[ext]',
-                },
+                test: /\.(jpe?g|svg|png|gif|ico|eot|ttf|woff2?|otf|jpg)(\?v=\d+\.\d+\.\d+)?$/i,
+                type: 'asset/resource',
             },
-            {
-                test: /\.(woff2|ttf|eot|svg|otf)(\?v=\d+\.\d+\.\d+)?$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            outputPath: 'fonts/'
-                        }
-                    }
-                ]
-            }
         ]
     },
     plugins: [
