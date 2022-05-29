@@ -1,6 +1,7 @@
 const path = require('path'); // add this for path context in loader
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 
 module.exports = {
     entry: './app.js',
@@ -23,6 +24,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             // injects bundle.js to our new index.html
             inject: true,

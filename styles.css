@@ -7,17 +7,28 @@ html {
     height:100vh;
 }
 
-/*#cursor {*/
-/*    width: 64px;*/
-/*    height: 64px;*/
-/*    position:absolute;*/
-/*    top:0;*/
-/*    z-index: 999;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: center;*/
-/*    pointer-events: none;*/
-/*}*/
+header {
+    display:flex;
+    position: absolute;
+    align-items: center;
+    gap:15px;
+    z-index: 10;
+    top: 1vw;
+    left: 5vh;
+}
+
+header > img {
+    width: 40px;
+}
+
+header > p {
+    margin: 0;
+    font-family: "Druk Wide";
+    font-weight: 400;
+    color: white;
+    font-size: 12px;
+}
+
 
 .cursor{
     position:fixed;

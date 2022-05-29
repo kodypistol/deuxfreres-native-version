@@ -164,6 +164,52 @@ const experienceManager = {
 
         });
     },
+    initFirstScene(){
+        const body = document.querySelector('body');
+        const df = document.querySelector('#df');
+        const dll = document.querySelector('#dll');
+        const lmc = document.querySelector('#lmc');
+        const qlf = document.querySelector('#qlf');
+        const titleContainerH1 = document.querySelector('.title-container > h1');
+
+        gsap.to(body, {
+            background: 'radial-gradient(circle, rgba(79,94,146,1) 45%, rgba(79,94,146,1) 81%)',
+            ease: "power3.out",
+            duration: 1.3
+        })
+
+        gsap.to(titleContainerH1, {
+            transform: 'rotateY(-35deg) translate3d(-30%, 0, 0)',
+            opacity: 1,
+            ease: "power3.out",
+            duration: 1.3
+        })
+
+
+        gsap.to(df, {
+            transform: 'translate3d(-60%, -50%, 0) rotateY(-35deg)',
+            ease: "power3.out",
+            duration: 1.3
+        })
+
+        gsap.to(dll, {
+            transform: 'translate3d(-30%, -50%, 0) rotateY(-35deg)',
+            ease: "power3.out",
+            duration: 1.3
+        })
+
+        gsap.to(lmc, {
+            transform: 'translate3d(10%, -50%, 0) rotateY(-35deg)',
+            ease: "power3.out",
+            duration: 1.3
+        })
+
+        gsap.to(qlf, {
+            transform: 'translate3d(60%, -50%, 0) rotateY(-35deg)',
+            ease: "power3.out",
+            duration: 1.3
+        });
+    },
     showClickedCoverSection(sectionToShow){
         const body = document.querySelector('body');
         body.classList.add('showSection');
@@ -226,7 +272,7 @@ const experienceManager = {
                     transform: 'translate3d(-5vw, -49vh, 0) scale(0.47)',
                     ease: "power4.out",
                 })
-                gsap.to('.hover-text-df-container', {
+                gsap.to('.hover-text-df-container > div', {
                     duration: 1,
                     transform: 'translate3d(17vh, 0, 0)',
                     opacity: 0,

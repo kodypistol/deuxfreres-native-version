@@ -1,9 +1,11 @@
 require('./script.js');
 require('./styles.css');
+require('./assets/svg/pnl-logo.svg');
 require('./assets/png/df.jpg');
 require('./assets/png/dll.jpg');
 require('./assets/png/lmc.jpg');
 require('./assets/png/qlf.jpg');
+require('./favicon.ico');
 require('./assets/svg/cursor.svg');
 require('./assets/fonts/DoppelgangerDisplay.otf');
 require('./assets/fonts/DrukWide-Bold.otf');

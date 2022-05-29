@@ -67,6 +67,10 @@ const eventsManager = {
                 case document.querySelector('#qlf'):
                     experienceManager.showClickedCoverSection('#qlf')
                     break;
+                case document.querySelector('header'):
+                    document.querySelector('body').classList.remove('showSection');
+                    experienceManager.initFirstScene();
+                    break;
             }
         });
         let scopeThis = this;
