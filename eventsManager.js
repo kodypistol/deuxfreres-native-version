@@ -4,6 +4,7 @@ import experienceManager from "./experienceManager";
 const eventsManager = {
     initManager(){
         this.initMouseMove(this.initMouseClick.bind(this));
+        this.initScrollEvent();
         this.initAnimationFrame();
     },
     initMouseMove(callback){
@@ -67,12 +68,14 @@ const eventsManager = {
                 case document.querySelector('#qlf'):
                     experienceManager.showClickedCoverSection('#qlf')
                     break;
-                case document.querySelector('header'):
-                    document.querySelector('body').classList.remove('showSection');
-                    experienceManager.initFirstScene();
-                    break;
             }
         });
+
+        document.querySelector('header').addEventListener('click', () =>
+        {
+            document.querySelector('body').classList.remove('showSection');
+            experienceManager.initFirstScene();
+        })
         let scopeThis = this;
         this.initAnimationFrame(scopeThis)
     },
@@ -292,6 +295,46 @@ const eventsManager = {
 
             });
         });
+    },
+    initScrollEvent(){
+        let initialPosition = 0;
+        let horizontalScroll = true;
+        let verticalScroll = false;
+        window.addEventListener('wheel', (e) =>
+        {
+            initialPosition += -e.deltaY / 30;
+
+            if (horizontalScroll)
+            {
+                document.querySelector('.section-showed').style.transform = 'translate3d(' + initialPosition + 'vw, 0px, 0px)';
+                document.querySelector('.img-child > img').style.left = 50 + initialPosition + 'vw';
+                document.querySelector('.tracklist-videos').style.transform = 'translate3d(' + (78 + (initialPosition * 1.15)) + 'vw, -50vh, 0px) scale(0.7)';
+                document.querySelector('.tracklist').style.transform = 'translate3d('  + (initialPosition * 1.15) + 'vw, 0px, 0px)';
+
+                if (initialPosition < -67)
+                {
+                    verticalScroll = true;
+                    horizontalScroll = false;
+                    initialPosition = 0;
+                } else
+                if (initialPosition > 0)
+                {
+                    initialPosition = 0;
+                }
+            } else
+            if (verticalScroll)
+            {
+                document.querySelector('.tracklist-videos').style.transform = 'translate3d(0,' + (-50 + initialPosition) + 'vh, 0px) scale(0.7)';
+                document.querySelector('.tracklist').style.transform = 'translate3d(-77vw,'  + initialPosition + 'vh, 0px)';
+                if (initialPosition > 0)
+                {
+                    verticalScroll = false;
+                    horizontalScroll = true;
+                    initialPosition = -67;
+                }
+            }
+
+        })
     },
     initAnimationFrame(scopeThis){
         window.requestAnimationFrame(function animation()

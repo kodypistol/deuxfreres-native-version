@@ -18,6 +18,7 @@
     "http-server": "^14.1.0",
     "internal-ip": "^7.0.0",
     "portfinder-sync": "^0.0.2",
+    "vlitejs": "^4.0.5",
     "webpack-merge": "^5.8.0"
   },
   "devDependencies": {

@@ -1,6 +1,48 @@
 import {gsap} from "gsap";
 import eventsManager from "./eventsManager";
 
+import 'vlitejs/dist/vlite.css';
+import Vlitejs from 'vlitejs';
+import VlitejsYoutube from 'vlitejs/dist/providers/youtube'
+
+Vlitejs.registerProvider('youtube', VlitejsYoutube);
+
+const audd = new Vlitejs(document.querySelector('#player'), {
+    options: {
+        controls: true,
+        autoplay: true,
+        playPause: false,
+        progressBar: false,
+        time: false,
+        volume: false,
+        fullscreen: false,
+        poster: 'https://i3.ytimg.com/vi/BtyHYIpykN0/maxresdefault.jpg',
+        bigPlay: false,
+        playsinline: true,
+        loop: true,
+        muted: false,
+        autoHide: true,
+        providerParams: {}
+    },
+    provider: 'youtube',
+    onReady: function (player) {
+        console.log(player)
+
+        player.on('play', () => console.log('play'))
+        player.on('pause', () => console.log('pause'))
+        player.on('progress', () => console.log('progress'))
+        player.on('timeupdate', () => console.log('timeupdate'))
+        player.on('volumechange', () => console.log('volumechange'))
+        player.on('enterfullscreen', () => console.log('enterfullscreen'))
+        player.on('exitfullscreen', () => console.log('exitfullscreen'))
+        player.on('enterpip', () => console.log('enterpip'))
+        player.on('leavepip', () => console.log('leavepip'))
+        player.on('trackenabled', () => console.log('trackenabled'))
+        player.on('trackdisabled', () => console.log('trackdisabled'))
+        player.on('ended', () => console.log('ended'))
+    }
+})
+
 const experienceManager = {
     initScene(){
         const fadeScreen = document.querySelector('.fade-in-screen');
@@ -170,6 +212,8 @@ const experienceManager = {
         const dll = document.querySelector('#dll');
         const lmc = document.querySelector('#lmc');
         const qlf = document.querySelector('#qlf');
+        const titleContainerH1SpanLast = document.querySelector('.title-container > h1 > span:last-child');
+        const titleContainerH1AllSpans = document.querySelectorAll('.title-container > h1 span');
         const titleContainerH1 = document.querySelector('.title-container > h1');
 
         gsap.to(body, {
@@ -179,10 +223,27 @@ const experienceManager = {
         })
 
         gsap.to(titleContainerH1, {
-            transform: 'rotateY(-35deg) translate3d(-30%, 0, 0)',
+            transform: 'rotateY(-35deg) translate3d(-20%, 0, 0)',
             opacity: 1,
             ease: "power3.out",
             duration: 1.3
+        })
+
+        titleContainerH1AllSpans.forEach((span) =>
+        {
+            gsap.to(span, {
+                color: 'white',
+                opacity: 1,
+                ease: "power3.out",
+                duration: 1.3
+            })
+        })
+
+        gsap.to(titleContainerH1SpanLast, {
+            transform: 'translate3d(-24%, 0, 200px)',
+            opacity: 1,
+            ease: "power3.out",
+            duration: 1.3,
         })
 
 
@@ -206,6 +267,12 @@ const experienceManager = {
 
         gsap.to(qlf, {
             transform: 'translate3d(60%, -50%, 0) rotateY(-35deg)',
+            ease: "power3.out",
+            duration: 1.3
+        });
+
+        gsap.to('.section-showed', {
+            opacity: '0',
             ease: "power3.out",
             duration: 1.3
         });

@@ -429,8 +429,9 @@ h1 span:last-child {
     }
 }
 
-.section-showed {
+.section-showed, .img-child > section {
     position:absolute;
+    pointer-events: none;
 }
 
 .section-showed > h3 {
@@ -457,3 +458,56 @@ h1 span:last-child {
     color: #00FDFF;
     transform: translate3d(-18vw, -79vh, 0) rotate(270deg);
 }
+
+/** SECTIONS, SCROLL PARTIE (PART 2) **/
+.img-child > section > .tracklist {
+    position: absolute;
+    top: 0px;
+    left: 76vw;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    z-index: 6;
+    text-align: center;
+}
+
+.img-child > section > .tracklist > ul {
+    font-family: Doppelganger;
+    font-size: 8vw;
+    color: #ffffff;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.img-child > section > .tracklist > ul > li {
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 24vh;
+    line-height: 7vh;
+}
+
+.img-child > section > .tracklist > ul > li > span {
+    font-family: "Druk Wide";
+    font-size: 1.5vw;
+}
+.tracklist-videos {
+    position: absolute;
+    width: 100%;
+    transform: translate3d(78vw, -50vh, 0px) scale(0.7);
+    pointer-events: none;
+}
+/** Tracklist : videos
+.tracklist {
+    z-index: 10;
+}
+.tracklist > .tracklist-videos {
+    position: absolute;
+    left: 0;
+    transform: translate3d(81vw, -444vh, 0px) scale(0.9);
+}**/
+
+/** HIDE MODAL DIALOG
+.vjs-text-track-display, .vjs-loading-spinner, .vjs-big-play-button, .vjs-control-bar, .vjs-modal-dialog {
+    display: none;
+}**/
